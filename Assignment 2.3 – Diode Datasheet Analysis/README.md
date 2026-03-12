@@ -13,3 +13,9 @@ Signal switching and protection in digital circuits
 - Datasheet link
 - Diode characteristics from datasheet
 - Short explanation of the diode and its application
+- 
+## Datasheet
+
+ON Semiconductor 1N4148 Datasheet:
+
+https://www.onsemi.com/pdf/datasheet/1n4148-d.pdf
