@@ -1,0 +1,142 @@
+## Circuit Challenge 5 – The Night Light Company
+
+### Objective
+
+The goal was to create a **night light** that automatically:
+
+* Turns **ON in the dark**
+* Turns **OFF in the light**
+
+### What I Did
+
+* I built a **voltage divider** using:
+
+  * A **100KΩ resistor**
+  * A **light dependent resistor (LDR)**
+* I connected the **output of the voltage divider to the base of a transistor**.
+* I set up a transistor switch circuit:
+
+  * Collector → LED + 200Ω resistor → Vcc
+  * Emitter → Ground
+
+### Explanation
+
+* The LDR changes resistance depending on light:
+
+  * **Bright light → low resistance**
+  * **Dark → high resistance**
+* In darkness:
+
+  * The voltage at the transistor base becomes high enough (~0.7V)
+  * The transistor turns ON → LED lights up
+* In light:
+
+  * The voltage drops
+  * The transistor turns OFF → LED turns off
+
+### Result
+
+* The LED automatically turned ON in darkness and OFF in light.
+* This demonstrated how sensors (LDR) and transistors can be combined for **automatic control systems**.
+
+---
+
+## Circuit Challenge 6 – The Cascade Fade
+
+### Objective
+
+Create 4 LEDs that:
+
+* Turn ON together when buttons are pressed
+* Fade OUT at **different times**, creating a cascade effect
+
+### What I Did
+
+* I built **4 separate RC timing circuits**, each with:
+
+  * A **1KΩ resistor**
+  * A **capacitor (different values for each LED)**
+  * A **push button**
+  * An LED
+
+* I selected capacitor values to control fade time using the formula:
+
+  * Time ≈ **5 × R × C**
+
+### Capacitor Setup
+
+* LED 1: **47µF** → fastest fade
+* LED 2: **47µF + 100µF (parallel)** → medium fade
+* LED 3: **100µF + 220µF (parallel)** → slower fade
+* LED 4: **470µF** → slowest fade
+
+### Explanation
+
+* When buttons are pressed:
+
+  * Capacitors charge and LEDs turn ON
+* When released:
+
+  * Capacitors discharge through the LED
+  * Each LED fades based on its RC time constant
+
+### Result
+
+* All LEDs turned ON together.
+* When released, they faded out one after another.
+* This created a clear **cascade lighting effect**.
+* Demonstrated how **RC circuits control timing in electronics**.
+
+---
+
+## Circuit Challenge 7 – Don’t Make Me Wait
+
+### Objective
+
+Design a circuit where:
+
+* An LED stays ON for about **75 seconds after pressing a button**
+
+### What I Did
+
+* I built an **RC delayed transistor switch**:
+
+  * Used a **100KΩ resistor** connected to the transistor base
+  * Added **capacitors in parallel**:
+
+    * 47µF + 100µF = 147µF total
+* The capacitor was connected so it charges when the button is pressed and discharges through the resistor afterward.
+
+### Explanation
+
+* When the button is pressed:
+
+  * The capacitor charges
+  * The transistor turns ON → LED lights
+
+* When released:
+
+  * The capacitor slowly discharges through the resistor
+  * This keeps the transistor ON for a long time
+
+* Time constant:
+
+  * RC = 100K × 147µF ≈ 14.7 seconds
+  * Total ON time ≈ 5 × RC ≈ 73.5 seconds
+
+### Result
+
+* The LED stayed ON for about **75 seconds** after releasing the button.
+* This demonstrated how capacitors and transistors can be used for **delayed switching and timing control**.
+
+---
+
+## Conclusion (Challenges 5–7)
+
+These challenges helped me understand:
+
+* How to use **sensors (LDRs)** for automation
+* How **RC circuits control timing and delays**
+* How **transistors act as switches controlled by voltage**
+
+Overall, I learned how to design circuits that respond to the environment and time, not just simple on/off behavior.
