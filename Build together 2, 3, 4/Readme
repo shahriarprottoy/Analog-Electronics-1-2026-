@@ -1,0 +1,185 @@
+## Build Together 2 – Motion Detector
+
+### Objective
+
+The goal was to build a **motion detector circuit** that:
+
+* Detects changes in light (simulating motion)
+* Turns on an LED
+* Keeps the LED on for about **5 seconds**
+
+### What I Did
+
+* I used an **operational amplifier (op amp) as a comparator**:
+
+  * Non-inverting input (+): connected to a **voltage divider with an LDR**
+  * Inverting input (−): connected to a **10K potentiometer** for tuning sensitivity
+
+* I adjusted the potentiometer so the LED stays OFF under normal light conditions.
+
+* I then added a **transistor switch with an RC timing circuit**:
+
+  * Connected the op amp output to:
+
+    * A **100µF capacitor to ground**
+    * A **10K resistor into the transistor base**
+
+* I added a **diode** to prevent current from flowing back into the op amp.
+
+### Explanation
+
+* When light is blocked (motion):
+
+  * LDR resistance increases → voltage rises at the non-inverting input
+  * Op amp output goes HIGH → turns on the transistor → LED lights
+* The capacitor charges and then slowly discharges through the resistor:
+
+  * This keeps the transistor ON for a short time (~5 seconds)
+
+### Result
+
+* The LED turned on when I blocked light from the LDR.
+* The LED stayed on briefly instead of instantly turning off.
+* This demonstrated how **comparators + RC timing circuits** can be used in real systems like motion lights.
+
+---
+
+## Build Together 3 – Rock and Roll Light Show Part II
+
+### Objective
+
+Create a **sound-reactive LED circuit** that lights up LEDs based on audio input, with improved sensitivity and amplification.
+
+### What I Did
+
+#### 1. Microphone Circuit
+
+* Connected a microphone with:
+
+  * A **10K resistor to Vcc**
+  * A **1µF capacitor** to remove DC signals
+
+#### 2. Op Amp Amplifier
+
+* Used an **LM358 op amp**:
+
+  * Created a **voltage divider (two 10K resistors)** to set Vcc/2 reference
+  * Built an **inverting amplifier**:
+
+    * 1MΩ feedback resistor
+    * 1KΩ input resistor
+* This gave a **high gain (~1000)** to amplify small audio signals
+
+#### 3. Sensitivity Control
+
+* Added a **high-pass filter**:
+
+  * 1µF capacitor + 10K potentiometer
+* Adjusting the potentiometer changed how sensitive the LEDs were to sound
+
+#### 4. Transistor Switch
+
+* Connected output to a transistor:
+
+  * Base controlled by signal
+  * Collector connected to LEDs with a **200Ω resistor**
+  * Emitter grounded
+
+### Explanation
+
+* The microphone converts sound into electrical signals
+* The op amp amplifies the signal
+* The potentiometer adjusts how strong the signal must be to trigger LEDs
+* The transistor switches LEDs ON when signal is strong enough
+
+### Result
+
+* LEDs flashed in response to sound (music, clapping, etc.)
+* Sensitivity could be adjusted easily
+* This demonstrated **signal amplification and real-world audio interaction circuits**
+
+---
+
+## Build Together 4 – The Volume Meter
+
+### Objective
+
+Create a **volume meter** using LEDs:
+
+* Green = low volume
+* Yellow = medium volume
+* Red = high volume
+
+### What I Did
+
+#### 1. Microphone + Amplifier
+
+* Built the same microphone and **op amp amplifier circuit** as before
+* Amplified the audio signal significantly
+
+#### 2. Sensitivity Control
+
+* Added a **high-pass filter with a 100K potentiometer**
+* This allowed me to adjust how strong the signal is before being processed
+
+#### 3. Comparator Circuits
+
+* Used **multiple op amps as comparators**:
+
+  * Each comparator compares the signal to a different reference voltage
+* Sent the audio signal to all **non-inverting inputs (+)**
+
+#### 4. Voltage Divider for Reference Levels
+
+* Built a voltage divider network using:
+
+  * A potentiometer + resistors
+* Created **different threshold voltages** for:
+
+  * Low, medium, and high signals
+
+#### 5. LED Outputs
+
+* Connected:
+
+  * Green LED → low threshold comparator
+  * Yellow LED → medium threshold comparator
+  * Red LED → high threshold comparator
+* Each LED had a **200Ω resistor**
+
+### Explanation
+
+* As sound increases:
+
+  * Signal voltage increases
+* Each comparator turns ON when:
+
+  * Signal > its reference voltage
+* This causes LEDs to light progressively:
+
+  * Quiet → green
+  * Medium → yellow
+  * Loud → red
+
+### Result
+
+* LEDs responded to sound levels accurately
+* Louder sounds activated more LEDs
+* Sensitivity and thresholds could be tuned
+
+### Key Learning
+
+* Learned how to use **multiple comparators for signal level detection**
+* Understood how real systems (like audio meters) visualize signal strength
+
+---
+
+## Conclusion (Build Together 2–4)
+
+These builds helped me understand:
+
+* How **op amps work as comparators and amplifiers**
+* How to process **real-world signals (light and sound)**
+* How to combine multiple concepts (RC circuits, transistors, sensors) into complete systems
+
+Overall, these were more advanced circuits that showed how basic components can be used to build **real-life electronic applications**.
